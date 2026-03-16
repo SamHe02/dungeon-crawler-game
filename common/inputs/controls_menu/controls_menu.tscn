@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dkbbgl0umylhf"]
+
+[ext_resource type="Script" uid="uid://wy6873wj1m6k" path="res://common/inputs/controls_menu/controls_menu.gd" id="1_p36d4"]
+[ext_resource type="Script" uid="uid://b3wp5fhv48oap" path="res://common/inputs/controls_menu/rebind_dialog.gd" id="2_vc2y0"]
+
+[node name="ControlsMenu" type="Control" unique_id=1269240470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p36d4")
+controls = Dictionary[String, String]({
+"jump": "Space",
+"move_forward": "W"
+})
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1551832238]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RebindDialog" type="PopupPanel" parent="." unique_id=318773244]
+script = ExtResource("2_vc2y0")
+
+[node name="RebindDialogLabel" type="Label" parent="RebindDialog" unique_id=898171048]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 184.0
+offset_bottom = 96.0
+text = "Press any key to rebind"

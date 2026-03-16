@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://lo8g4usebw7c"]
+
+[ext_resource type="PackedScene" uid="uid://dkbbgl0umylhf" path="res://common/inputs/controls_menu/controls_menu.tscn" id="1_ieiqf"]
+
+[node name="Test" type="Node3D" unique_id=1953495691]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=572040752]
+
+[node name="ControlsMenu" parent="CanvasLayer" unique_id=1269240470 instance=ExtResource("1_ieiqf")]

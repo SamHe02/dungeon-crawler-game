@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b0cexfld4jcte"]
+
+[ext_resource type="Script" uid="uid://dbs34cicayd5i" path="res://common/inputs/controls_menu/input_display.gd" id="1_mnwdr"]
+
+[node name="InputDisplay" type="Control" unique_id=1149016471]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mnwdr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=342316466]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InputTypeLabel" type="Label" parent="HBoxContainer" unique_id=938152636]
+layout_mode = 2
+
+[node name="InputKeyButton" type="Button" parent="HBoxContainer" unique_id=1733868684]
+layout_mode = 2
