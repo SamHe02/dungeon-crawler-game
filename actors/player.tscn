@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://cy26gqwuxo2jh"]
 
+[ext_resource type="Script" uid="uid://ddt8sksgwp741" path="res://actors/player.gd" id="1_kjkj0"]
 [ext_resource type="Script" uid="uid://bvmiyfd6are5f" path="res://common/combat/health_component.gd" id="1_niuxy"]
 [ext_resource type="Script" uid="uid://cpq2ehmeqhfcf" path="res://common/combat/hurt_box.gd" id="2_mvpqy"]
+[ext_resource type="PackedScene" uid="uid://dkbbgl0umylhf" path="res://common/inputs/controls_menu/controls_menu.tscn" id="3_1yqc4"]
+[ext_resource type="Script" uid="uid://4w5ewkqmovtw" path="res://common/movement/movement_input.gd" id="4_esgq3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mvpqy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mvpqy"]
 
 [node name="Player" type="Node3D" unique_id=1473385480]
+script = ExtResource("1_kjkj0")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1790872779]
 
@@ -25,3 +29,13 @@ shape = SubResource("CapsuleShape3D_mvpqy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=123295002]
 mesh = SubResource("CapsuleMesh_mvpqy")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=704903889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2329695, 0)
+
+[node name="ControlsMenu" parent="." unique_id=1269240470 instance=ExtResource("3_1yqc4")]
+controls = Dictionary[int, int]({})
+
+[node name="MovementInput" type="Node" parent="." unique_id=1561969970]
+script = ExtResource("4_esgq3")
+metadata/_custom_type_script = "uid://4w5ewkqmovtw"

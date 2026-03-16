@@ -9,3 +9,6 @@ size = Vector3(10, 1, 10)
 
 [node name="Player" parent="." unique_id=1473385480 instance=ExtResource("1_c13y7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1841305057]
+transform = Transform3D(1, 0, 0, 0, 0.3451345, 0.9385532, 0, -0.9385532, 0.3451345, 0, 2.8017473, 0)
