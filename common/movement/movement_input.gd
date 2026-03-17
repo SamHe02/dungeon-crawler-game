@@ -19,17 +19,12 @@ func get_movement_vector():
 	direction = Vector3(x, 0, z).normalized()
 	emit_signal(direction_changed.get_name(), direction)
 
-func get_relative_mouse_movement(event):
-	mouse_pos = event.relative
-	emit_signal(mouse_moved.get_name(), mouse_pos)
+
 
 func _ready() -> void:
 	mouse_pos = get_viewport().get_mouse_position() # Replace with function body.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		get_relative_mouse_movement(event)
 
 func _process(delta):
 	get_movement_vector()
