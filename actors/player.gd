@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	movement_input.direction_changed.connect(move_character)
 	pass # Replace with function body.
 
 func _input(event):
@@ -17,9 +18,8 @@ func _input(event):
 		pitch = clamp(pitch, deg_to_rad(-80), deg_to_rad(80))
 		pivot.rotation.x = pitch
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	var input_dir = movement_input.direction
+func move_character(dir):
+	var input_dir = dir
 	var direction = Vector3.ZERO
 	
 	if input_dir.length() > 0:
@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		direction = direction.normalized()
 	velocity.x = direction.x * 10
 	velocity.z = direction.z * 10
-	
-	
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
 	move_and_slide()

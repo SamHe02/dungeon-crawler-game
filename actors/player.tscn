@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dkbbgl0umylhf" path="res://common/inputs/controls_menu/controls_menu.tscn" id="3_1yqc4"]
 [ext_resource type="Script" uid="uid://4w5ewkqmovtw" path="res://common/movement/movement_input.gd" id="4_esgq3"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mvpqy"]
-
 [node name="Player" type="CharacterBody3D" unique_id=736949578]
 script = ExtResource("1_kjkj0")
 
@@ -14,9 +12,6 @@ script = ExtResource("1_kjkj0")
 [node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=704903889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2329695, 0)
 current = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=123295002]
-mesh = SubResource("CapsuleMesh_mvpqy")
 
 [node name="ControlsMenu" parent="." unique_id=1269240470 instance=ExtResource("3_1yqc4")]
 
