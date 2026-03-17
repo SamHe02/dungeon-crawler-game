@@ -9,6 +9,7 @@ var waiting_for_input = false
 var current_action: Input_Constants.Actions = Input_Constants.Actions.NONE
 var displays = {}
 var config = ConfigFile.new()
+var prev_mouse_mode = Input.mouse_mode
 
 func get_default_controls() -> Dictionary[Input_Constants.Actions, int]:
 	return Input_Constants.DEFAULT_CONTROLS
@@ -56,11 +57,19 @@ func _on_rebind_requested(input_type: String):
 	current_action = Input_Constants.Actions[input_type]
 	rebind_dialog.start()
 
+func _set_mouse_confined_visible():
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CONFINED:
+		prev_mouse_mode = Input.mouse_mode
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	elif Input.get_mouse_mode() != prev_mouse_mode:
+		Input.mouse_mode = prev_mouse_mode
+
 func _input(event):
 
 	if !waiting_for_input:
 		if Input.is_action_just_pressed(Input_Constants.action_to_string(Input_Constants.Actions.OPEN_INPUT_MENU)):
 			v_box_container.visible = !v_box_container.visible
+			_set_mouse_confined_visible()
 		return
 	if event is InputEventKey or event is InputEventJoypadButton or event is InputEventMouseButton:
 

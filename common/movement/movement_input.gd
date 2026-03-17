@@ -2,11 +2,11 @@ class_name MovementInput
 extends Node
 
 signal direction_changed(direction)
+signal mouse_moved(mouse_pos)
 var direction: Vector3 = Vector3.ZERO
+var mouse_pos: Vector2 = Vector2.ZERO
+var mouse_mode = Input.MOUSE_MODE_CAPTURED
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 func get_movement_vector():
 	var x = (
 		Input.get_action_strength(Input_Constants.action_to_string(Input_Constants.Actions.MOVE_RIGHT)) -
@@ -17,8 +17,20 @@ func get_movement_vector():
 		Input.get_action_strength(Input_Constants.action_to_string(Input_Constants.Actions.MOVE_FORWARD))
 	)
 	direction = Vector3(x, 0, z).normalized()
-	emit_signal("direction_changed", direction)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	emit_signal(direction_changed.get_name(), direction)
+
+func get_relative_mouse_movement(event):
+	mouse_pos = event.relative
+	emit_signal(mouse_moved.get_name(), mouse_pos)
+
+func _ready() -> void:
+	mouse_pos = get_viewport().get_mouse_position() # Replace with function body.
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _input(event):
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		get_relative_mouse_movement(event)
+
 func _process(delta):
 	get_movement_vector()
 	
