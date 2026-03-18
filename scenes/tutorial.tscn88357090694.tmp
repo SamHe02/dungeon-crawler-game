@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://nyv4oidcr6c2"]
+
+[ext_resource type="PackedScene" uid="uid://cy26gqwuxo2jh" path="res://actors/player.tscn" id="1_c13y7"]
+
+[node name="Tutorial" type="Node3D" unique_id=1152123012]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2047903295]
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="Player" parent="." unique_id=1473385480 instance=ExtResource("1_c13y7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7081621, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1841305057]
+transform = Transform3D(1, 0, 0, 0, 0.3451345, 0.9385532, 0, -0.9385532, 0.3451345, 0, 2.8017473, 0)
