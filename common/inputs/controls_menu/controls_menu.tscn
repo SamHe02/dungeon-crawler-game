@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b3wp5fhv48oap" path="res://common/inputs/controls_menu/rebind_dialog.gd" id="2_vc2y0"]
 
 [node name="ControlsMenu" type="Control" unique_id=1269240470]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

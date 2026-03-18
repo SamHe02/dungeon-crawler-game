@@ -64,12 +64,16 @@ func _set_mouse_confined_visible():
 	elif Input.get_mouse_mode() != prev_mouse_mode:
 		Input.mouse_mode = prev_mouse_mode
 
+func _listen_to_pause_input():
+	if Input.is_action_just_pressed(Input_Constants.action_to_string(Input_Constants.Actions.OPEN_INPUT_MENU)):
+		v_box_container.visible = !v_box_container.visible
+		GameState.set_paused(!GameState.is_paused)
+		_set_mouse_confined_visible()
+
 func _input(event):
 
 	if !waiting_for_input:
-		if Input.is_action_just_pressed(Input_Constants.action_to_string(Input_Constants.Actions.OPEN_INPUT_MENU)):
-			v_box_container.visible = !v_box_container.visible
-			_set_mouse_confined_visible()
+		_listen_to_pause_input()
 		return
 	if event is InputEventKey or event is InputEventJoypadButton or event is InputEventMouseButton:
 
