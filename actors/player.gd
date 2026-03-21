@@ -2,6 +2,7 @@ extends CharacterBody3D
 @onready var movement_input: MovementInput = $MovementInput
 @onready var pivot: Node3D = $Pivot
 @onready var camera_3d: Camera3D = $Pivot/Camera3D
+@onready var hit_scan: HitScan = $HitScan
 
 @onready var sensitivity: float = PLAYER_CONSTANTS.SENSITIVITY
 @onready var pitch: float = 0.0

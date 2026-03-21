@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dkbbgl0umylhf" path="res://common/inputs/controls_menu/controls_menu.tscn" id="3_1yqc4"]
 [ext_resource type="Script" uid="uid://4w5ewkqmovtw" path="res://common/movement/movement_input.gd" id="4_esgq3"]
 [ext_resource type="Script" uid="uid://dbjctfatupb4s" path="res://common/hud/hud.gd" id="4_kjkj0"]
+[ext_resource type="Script" uid="uid://cmgdjarv3j5tn" path="res://common/combat/damage_dealers/hit_scan_input.gd" id="5_kjkj0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1yqc4"]
 
@@ -34,3 +35,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_kjkj0")
 metadata/_custom_type_script = "uid://dbjctfatupb4s"
+
+[node name="HitScanInput" type="Node" parent="." unique_id=1477435467]
+script = ExtResource("5_kjkj0")
+metadata/_custom_type_script = "uid://cmgdjarv3j5tn"

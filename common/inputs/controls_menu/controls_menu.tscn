@@ -24,6 +24,6 @@ script = ExtResource("2_vc2y0")
 [node name="RebindDialogLabel" type="Label" parent="RebindDialog" unique_id=898171048]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 184.0
+offset_right = 96.0
 offset_bottom = 96.0
 text = "Press any key to rebind"

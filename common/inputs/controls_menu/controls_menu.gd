@@ -27,9 +27,9 @@ func load_controls() -> Dictionary[Input_Constants.Actions, int]:
 
 func update_input_event_map(ctrls, curr_action):
 	var input_event = InputEventKey.new()
-	InputMap.action_erase_events(Input_Constants.action_to_string(curr_action))
+	InputMap.action_erase_events(Input_Constants.to_String(curr_action))
 	input_event.keycode = ctrls[curr_action]
-	InputMap.action_add_event(Input_Constants.action_to_string(curr_action), input_event)
+	InputMap.action_add_event(Input_Constants.to_String(curr_action), input_event)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,7 +38,7 @@ func _ready():
 	rebind_dialog.input_selected.connect(_on_input_selected)
 	for action in controls:
 		var display = Input_Display_Scene.instantiate()
-		display.input_type = Input_Constants.action_to_string(action);
+		display.input_type = Input_Constants.to_String(action);
 		display.input_key = OS.get_keycode_string(controls[action]);
 		display.button_pressed.connect(_on_rebind_requested)
 		v_box_container.set("theme_override_constants/separation", Input_Constants.BTN_SPACING)
@@ -46,8 +46,8 @@ func _ready():
 		
 		#Add an Input to the Input Mapping
 		var event = InputEventKey.new()
-		if not InputMap.has_action(Input_Constants.action_to_string(action)):
-			InputMap.add_action(Input_Constants.action_to_string(action))
+		if not InputMap.has_action(Input_Constants.to_String(action)):
+			InputMap.add_action(Input_Constants.to_String(action))
 		
 		update_input_event_map(controls, action)
 		
@@ -65,7 +65,7 @@ func _set_mouse_confined_visible():
 		Input.mouse_mode = prev_mouse_mode
 
 func _listen_to_pause_input():
-	if Input.is_action_just_pressed(Input_Constants.action_to_string(Input_Constants.Actions.OPEN_INPUT_MENU)):
+	if Input.is_action_just_pressed(Input_Constants.to_String(Input_Constants.Actions.OPEN_INPUT_MENU)):
 		v_box_container.visible = !v_box_container.visible
 		GameState.set_paused(!GameState.is_paused)
 		_set_mouse_confined_visible()

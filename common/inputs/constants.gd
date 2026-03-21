@@ -7,7 +7,8 @@ const DEFAULT_CONTROLS: Dictionary[Actions, int] = {
 	Actions.MOVE_LEFT: KEY_A,
 	Actions.MOVE_RIGHT: KEY_D,
 	Actions.JUMP: KEY_SPACE,
-	Actions.OPEN_INPUT_MENU: KEY_ESCAPE
+	Actions.OPEN_INPUT_MENU: KEY_ESCAPE,
+	Actions.SHOOT: MOUSE_BUTTON_LEFT
 }
 
 enum Actions {
@@ -17,10 +18,11 @@ enum Actions {
 	MOVE_RIGHT,
 	JUMP,
 	OPEN_INPUT_MENU,
-	NONE
+	SHOOT,
+	NONE # DON'T ASSIGN THIS ONE TO ANYTHING EVER, OTHERWISE IT WILL BREAK
 }
 
-static func action_to_string(action: Actions) -> String:
+static func to_String(action: Actions) -> String:
 	return Actions.keys()[action]
 
 const PC_SECTION: String = "PC"

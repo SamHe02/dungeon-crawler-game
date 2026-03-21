@@ -15,18 +15,18 @@ var mouse_mode = Input.MOUSE_MODE_CAPTURED
 # outputs the signal for the input direction
 func get_movement_vector() -> void:
 	var x = (
-		Input.get_action_strength(Input_Constants.action_to_string(Input_Constants.Actions.MOVE_RIGHT)) -
-		Input.get_action_strength(Input_Constants.action_to_string(Input_Constants.Actions.MOVE_LEFT))
+		Input.get_action_strength(Input_Constants.to_String(Input_Constants.Actions.MOVE_RIGHT)) -
+		Input.get_action_strength(Input_Constants.to_String(Input_Constants.Actions.MOVE_LEFT))
 	)
 	var z = (
-		Input.get_action_strength(Input_Constants.action_to_string(Input_Constants.Actions.MOVE_BACKWARD)) -
-		Input.get_action_strength(Input_Constants.action_to_string(Input_Constants.Actions.MOVE_FORWARD))
+		Input.get_action_strength(Input_Constants.to_String(Input_Constants.Actions.MOVE_BACKWARD)) -
+		Input.get_action_strength(Input_Constants.to_String(Input_Constants.Actions.MOVE_FORWARD))
 	)
 	direction = Vector3(x, 0, z).normalized()
 	emit_signal(direction_changed.get_name(), direction)
 
 func get_jump_input() -> void:
-	if Input.is_action_just_pressed(Input_Constants.action_to_string(Input_Constants.Actions.JUMP)):
+	if Input.is_action_just_pressed(Input_Constants.to_String(Input_Constants.Actions.JUMP)):
 		emit_signal(jump.get_name(), velocity)
 
 func _ready() -> void:
