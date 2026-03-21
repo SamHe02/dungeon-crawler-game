@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ddt8sksgwp741" path="res://actors/player.gd" id="1_kjkj0"]
 [ext_resource type="PackedScene" uid="uid://dkbbgl0umylhf" path="res://common/inputs/controls_menu/controls_menu.tscn" id="3_1yqc4"]
 [ext_resource type="Script" uid="uid://4w5ewkqmovtw" path="res://common/movement/movement_input.gd" id="4_esgq3"]
+[ext_resource type="Script" uid="uid://dbjctfatupb4s" path="res://common/hud/hud.gd" id="4_kjkj0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1yqc4"]
 
@@ -23,3 +24,13 @@ metadata/_custom_type_script = "uid://4w5ewkqmovtw"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1139053827]
 shape = SubResource("CapsuleShape3D_1yqc4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=635989791]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1535814259]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_kjkj0")
+metadata/_custom_type_script = "uid://dbjctfatupb4s"
